@@ -26,7 +26,7 @@ public class ClubVisitFacade {
     private NightClubService nightClubService;
     
     @Resource
-    private NightClubConverter nightCLubConverter;
+    private NightClubConverter nightClubConverter;
 
     public void createVisit(String visitorName, String clubName) {
         Visitor visitor = visitorService.getVisitorByName(visitorName);
@@ -46,6 +46,14 @@ public class ClubVisitFacade {
         }
     }
 
+    public List<NightClubData> getClubsNotVisitedByVisitorWithName(String name) {
+        Visitor visitor = visitorService.getVisitorByName(name);
+        if (visitor == null) {
+            throw new VisitorDoesNotExistException("Visitor with such name does not exist");
+        }
+        return nightClubConverter.convertAll(clubVisitService.getClubsNotVisitedByVisitor(visitor));
+    }
+
     private void createVisitWithNewVisitor(String visitorName, NightClub nightClub) {
         Visitor newVisitor = visitorService.createVisitor(visitorName);
         clubVisitService.addVisitor(nightClub, newVisitor);
@@ -60,13 +68,5 @@ public class ClubVisitFacade {
         Visitor newVisitor = visitorService.createVisitor(visitorName);
         NightClub newClub = nightClubService.createNightClub(clubName);
         clubVisitService.createVisit(newVisitor, newClub);
-    }
-
-    public List<NightClubData> getClubsNotVisitedByVisitorWithName(String name) {
-        Visitor visitor = visitorService.getVisitorByName(name);
-        if (visitor == null) {
-            throw new VisitorDoesNotExistException("Visitor with such name does not exist");
-        }
-        return nightCLubConverter.convertAll(clubVisitService.getClubsNotVisitedByVisitor(visitor));
     }
 }
