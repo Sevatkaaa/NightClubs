@@ -7,7 +7,6 @@ import night.clubs.repository.VisitorRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -23,7 +22,9 @@ public class ClubVisitService {
         List<Visitor> visitors = nightClub.getVisitors();
         visitors.add(newVisitor);
         nightClub.setVisitors(visitors);
-        newVisitor.setClubsVisited(Collections.singletonList(nightClub));
+        List<NightClub> clubsVisited = newVisitor.getClubsVisited();
+        clubsVisited.add(nightClub);
+        newVisitor.setClubsVisited(clubsVisited);
         nightClubRepository.save(nightClub);
     }
 
@@ -31,7 +32,9 @@ public class ClubVisitService {
         List<NightClub> clubsVisited = visitor.getClubsVisited();
         clubsVisited.add(newClub);
         visitor.setClubsVisited(clubsVisited);
-        newClub.setVisitors(Collections.singletonList(visitor));
+        List<Visitor> visitors = newClub.getVisitors();
+        visitors.add(visitor);
+        newClub.setVisitors(visitors);
         nightClubRepository.save(newClub);
     }
 
