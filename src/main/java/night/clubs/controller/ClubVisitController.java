@@ -20,8 +20,13 @@ public class ClubVisitController {
     public void createVisit(@RequestParam String visitorName, @RequestParam String clubName) {
         clubVisitFacade.createVisit(visitorName, clubName);
     }
-    
-    @RequestMapping(method = RequestMethod.GET)
+
+    @RequestMapping(value = "visited", method = RequestMethod.GET)
+    public List<NightClubData> getClubsVisitedByVisitorWithName(@RequestParam String name) {
+        return clubVisitFacade.getClubsVisitedByVisitorWithName(name);
+    }
+
+    @RequestMapping(value = "notvisited", method = RequestMethod.GET)
     public List<NightClubData> getClubsNotVisitedByVisitorWithName(@RequestParam String name) {
         return clubVisitFacade.getClubsNotVisitedByVisitorWithName(name);
     }

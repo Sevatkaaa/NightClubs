@@ -5,7 +5,6 @@ import night.clubs.model.NightClub;
 import night.clubs.model.Visitor;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,9 +21,8 @@ public class NightClubConverter {
     }
 
     public List<NightClubData> convertAll(List<NightClub> sources) {
-        List<NightClubData> targets = new ArrayList<>();
-        sources.stream()
-                .forEach(source -> targets.add(convert(source)));
-        return targets;
+        return sources.stream()
+                .map(this::convert)
+                .collect(Collectors.toList());
     }
 }

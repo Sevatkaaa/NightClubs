@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class ClubVisitFacade {
@@ -45,13 +46,20 @@ public class ClubVisitFacade {
             createVisitWithNewClubAndNewVisitor(visitorName, clubName);
         }
     }
+    
+    public List<NightClubData> getClubsVisitedByVisitorWithName(String name) {
+        Visitor visitor = getVisitorWithName(name);
+        return nightClubConverter.convertAll(clubVisitService.getClubsVisitedByVisitor(visitor));
+    }
 
     public List<NightClubData> getClubsNotVisitedByVisitorWithName(String name) {
-        Visitor visitor = visitorService.getVisitorByName(name);
-        if (visitor == null) {
-            throw new VisitorDoesNotExistException("Visitor with such name does not exist");
-        }
+        Visitor visitor = getVisitorWithName(name);
         return nightClubConverter.convertAll(clubVisitService.getClubsNotVisitedByVisitor(visitor));
+    }
+
+    private Visitor getVisitorWithName(String name) {
+        return Optional.ofNullable(visitorService.getVisitorByName(name))
+                .orElseThrow(() -> new VisitorDoesNotExistException("Visitor with such name does not exist"));
     }
 
     private void createVisitWithNewVisitor(String visitorName, NightClub nightClub) {

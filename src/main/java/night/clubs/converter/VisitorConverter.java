@@ -5,6 +5,7 @@ import night.clubs.model.NightClub;
 import night.clubs.model.Visitor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -17,5 +18,11 @@ public class VisitorConverter {
                 .map(NightClub::getName)
                 .collect(Collectors.toList()));
         return target;
+    }
+
+    public List<VisitorData> convertAll(List<Visitor> visitors) {
+        return visitors.stream()
+                .map(this::convert)
+                .collect(Collectors.toList());
     }
 }

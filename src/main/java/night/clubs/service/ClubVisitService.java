@@ -46,6 +46,11 @@ public class ClubVisitService {
         nightClubRepository.save(club);
     }
 
+
+    public List<NightClub> getClubsVisitedByVisitor(Visitor visitor) {
+        return visitor.getClubsVisited();
+    }
+
     public List<NightClub> getClubsNotVisitedByVisitor(Visitor visitor) {
         List<NightClub> clubs = getAllClubs();
         clubs.removeAll(visitor.getClubsVisited());
