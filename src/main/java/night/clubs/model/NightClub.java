@@ -1,4 +1,4 @@
-package night.clubs.data;
+package night.clubs.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

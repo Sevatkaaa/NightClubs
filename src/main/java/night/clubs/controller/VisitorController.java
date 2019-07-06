@@ -1,9 +1,10 @@
 package night.clubs.controller;
 
-import night.clubs.data.Visitor;
-import night.clubs.service.VisitorService;
+import night.clubs.data.VisitorData;
+import night.clubs.facade.VisitorFacade;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -12,10 +13,15 @@ import javax.annotation.Resource;
 @RequestMapping(value = "visitor")
 public class VisitorController {
     @Resource
-    private VisitorService visitorService;
+    private VisitorFacade visitorFacade;
+    
+    @RequestMapping(method = RequestMethod.GET)
+    public VisitorData getVisitorByName(@RequestParam String name) {
+        return visitorFacade.getVisitorByName(name);
+    }
     
     @RequestMapping(method = RequestMethod.POST)
-    public Visitor createVisitor(String name) {
-        return visitorService.createVisitor(name);
+    public VisitorData createVisitor(String name) {
+        return visitorFacade.createVisitor(name);
     }
 }

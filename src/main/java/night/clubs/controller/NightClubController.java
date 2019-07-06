@@ -1,7 +1,7 @@
 package night.clubs.controller;
 
-import night.clubs.data.NightClub;
-import night.clubs.service.NightClubService;
+import night.clubs.data.NightClubData;
+import night.clubs.facade.NightClubFacade;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,10 +13,15 @@ import javax.annotation.Resource;
 @RequestMapping(value = "/nightclub")
 public class NightClubController {
     @Resource
-    private NightClubService nightClubService;
+    private NightClubFacade nightClubFacade;
+    
+    @RequestMapping(method = RequestMethod.GET)
+    public NightClubData getNightClubByName(@RequestParam String name) {
+        return nightClubFacade.getNightClubByName(name);
+    }
     
     @RequestMapping(method = RequestMethod.POST)
-    public NightClub createNightClub(@RequestParam String name) {
-        return nightClubService.createNightClub(name);
+    public NightClubData createNightClub(@RequestParam String name) {
+        return nightClubFacade.createNightClub(name);
     }
 }

@@ -1,6 +1,6 @@
 package night.clubs.service;
 
-import night.clubs.data.NightClub;
+import night.clubs.model.NightClub;
 import night.clubs.exception.NightClubExistsException;
 import night.clubs.repository.NightClubRepository;
 import org.springframework.stereotype.Service;

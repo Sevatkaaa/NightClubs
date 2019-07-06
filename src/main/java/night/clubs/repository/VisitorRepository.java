@@ -1,6 +1,6 @@
 package night.clubs.repository;
 
-import night.clubs.data.Visitor;
+import night.clubs.model.Visitor;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
