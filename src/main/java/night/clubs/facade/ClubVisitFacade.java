@@ -1,6 +1,6 @@
 package night.clubs.facade;
 
-import night.clubs.converter.NightCLubConverter;
+import night.clubs.converter.NightClubConverter;
 import night.clubs.data.NightClubData;
 import night.clubs.exception.VisitorDoesNotExistException;
 import night.clubs.model.NightClub;
@@ -26,7 +26,7 @@ public class ClubVisitFacade {
     private NightClubService nightClubService;
     
     @Resource
-    private NightCLubConverter nightCLubConverter;
+    private NightClubConverter nightCLubConverter;
 
     public void createVisit(String visitorName, String clubName) {
         Visitor visitor = visitorService.getVisitorByName(visitorName);

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class NightCLubConverter {
+public class NightClubConverter {
     public NightClubData convert(NightClub source) {
         NightClubData target = new NightClubData();
         target.setId(source.getId());

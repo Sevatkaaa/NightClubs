@@ -1,6 +1,6 @@
 package night.clubs.facade;
 
-import night.clubs.converter.NightCLubConverter;
+import night.clubs.converter.NightClubConverter;
 import night.clubs.data.NightClubData;
 import night.clubs.model.NightClub;
 import night.clubs.service.NightClubService;
@@ -14,7 +14,7 @@ public class NightClubFacade {
     private NightClubService nightClubService;
     
     @Resource
-    private NightCLubConverter nightCLubConverter;
+    private NightClubConverter nightCLubConverter;
     
     public NightClubData getNightClubByName(String name) {
         NightClub club = nightClubService.getNightClubByName(name);
