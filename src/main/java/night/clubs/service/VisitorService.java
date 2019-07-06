@@ -21,4 +21,10 @@ public class VisitorService {
             throw new VisitorExistsException("Visitor with such name already exists");
         }
     }
+    
+    public Visitor getVisitorByName(String name) {
+        return visitorRepository.findByName(name).stream()
+                .findFirst()
+                .orElse(null);
+    }
 }

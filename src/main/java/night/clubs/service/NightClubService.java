@@ -21,4 +21,10 @@ public class NightClubService {
             throw new NightClubExistsException("Visitor with such name already exists");
         }
     }
+    
+    public NightClub getNightClubByName(String name) {
+        return nightClubRepository.findByName(name).stream()
+                .findFirst()
+                .orElse(null);
+    }
 }

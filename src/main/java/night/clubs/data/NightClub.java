@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,8 +27,12 @@ public class NightClub {
     )
     private List<Visitor> visitors;
 
+    public NightClub() {
+    }
+
     public NightClub(String name) {
         this.name = name;
+        visitors = new ArrayList<>();
     }
 
     public Integer getId() {

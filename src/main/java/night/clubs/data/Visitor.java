@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,8 +19,12 @@ public class Visitor {
     @ManyToMany(mappedBy = "visitors")
     private List<NightClub> clubsVisited;
 
+    public Visitor() {
+    }
+
     public Visitor(String name) {
         this.name = name;
+        clubsVisited = new ArrayList<>();
     }
 
     public Integer getId() {
