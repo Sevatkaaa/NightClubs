@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "56f16a76-d459-4d10-9387-7e3cc3fbbff6",
+		"name": "NightClubs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create night club with name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/nightclub?name=DiscoClub",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"nightclub"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "DiscoClub"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create visitor with name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/visitor?name=Andy",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visitor"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Andy"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create club visit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/clubvisit?visitorName=Andy&clubName=DiscoClub",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clubvisit"
+					],
+					"query": [
+						{
+							"key": "visitorName",
+							"value": "Andy"
+						},
+						{
+							"key": "clubName",
+							"value": "DiscoClub"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get visitor by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/visitor?name=Andy",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visitor"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Andy"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get night club by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/nightclub?name=DiscoClub",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"nightclub"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "DiscoClub"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get clubs not visited by user with name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/clubvisit/notvisited?name=Andy",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clubvisit",
+						"notvisited"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Andy"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get clubs visited by visitor with name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/clubvisit/visited?name=Andy",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clubvisit",
+						"visited"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Andy"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get visitors of club with name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/nightclub/visitors?name=Tao",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"nightclub",
+						"visitors"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Tao"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
