@@ -64,12 +64,12 @@ public class ClubVisitFacade {
 
     private void createVisitWithNewVisitor(String visitorName, NightClub nightClub) {
         Visitor newVisitor = visitorService.createVisitor(visitorName);
-        clubVisitService.addVisitor(nightClub, newVisitor);
+        clubVisitService.createVisit(newVisitor, nightClub);
     }
 
     private void createVisitWithNewClub(Visitor visitor, String clubName) {
         NightClub newClub = nightClubService.createNightClub(clubName);
-        clubVisitService.addNightClub(visitor, newClub);
+        clubVisitService.createVisit(visitor, newClub);
     }
 
     private void createVisitWithNewClubAndNewVisitor(String visitorName, String clubName) {

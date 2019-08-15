@@ -92,7 +92,7 @@ public class ClubVisitFacadeUnitTest {
         inOrder.verify(visitorService).getVisitorByName(VISITOR_NAME);
         inOrder.verify(nightClubService).getNightClubByName(CLUB_NAME);
         inOrder.verify(visitorService).createVisitor(VISITOR_NAME);
-        inOrder.verify(clubVisitService).addVisitor(nightClub, visitor);
+        inOrder.verify(clubVisitService).createVisit(visitor, nightClub);
     }
 
     @Test
@@ -107,7 +107,7 @@ public class ClubVisitFacadeUnitTest {
         inOrder.verify(visitorService).getVisitorByName(VISITOR_NAME);
         inOrder.verify(nightClubService).getNightClubByName(CLUB_NAME);
         inOrder.verify(nightClubService).createNightClub(CLUB_NAME);
-        inOrder.verify(clubVisitService).addNightClub(visitor, nightClub);
+        inOrder.verify(clubVisitService).createVisit(visitor, nightClub);
     }
 
     @Test
