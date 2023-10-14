@@ -15,21 +15,21 @@ import static org.mockito.Mockito.when;
 public class VisitorControllerUnitTest {
 
     private static final String VISITOR_NAME = "visitor";
-    
+
     @InjectMocks
     private VisitorController visitorController = new VisitorController();
-    
+
     @Mock
     private VisitorFacade visitorFacade;
-    
+
     private VisitorData visitorData = new VisitorData();
 
     @Test
     public void shouldGetVisitorByName() {
         when(visitorFacade.getVisitorByName(VISITOR_NAME)).thenReturn(visitorData);
-        
+
         VisitorData actual = visitorController.getVisitorByName(VISITOR_NAME);
-        
+
         assertThat(actual).isEqualTo(visitorData);
     }
 
